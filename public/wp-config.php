@@ -48,7 +48,7 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         getenv('DATABASE_URL'));
+define('AUTH_KEY',         getenv('AUTH_KEY'));
 define('SECURE_AUTH_KEY',  getenv('SECURE_AUTH_KEY'));
 define('LOGGED_IN_KEY',    getenv('LOGGED_IN_KEY'));
 define('NONCE_KEY',        getenv('NONCE_KEY'));
@@ -82,10 +82,14 @@ $table_prefix  = 'wp_';
 define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
+defined('DS') ? DS : define('DS', DIRECTORY_SEPARATOR);
+
+$WORK_DIR = dirname(__DIR__);
+$WEB_ROOT_PATH = $WORK_DIR.DS.'public';
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/cms');
+	define('ABSPATH', $WEB_ROOT_PATH.DS.'cms');
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
@@ -95,6 +99,6 @@ $protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' 
 
 define('WP_SITEURL', $protocol . getenv('DOMAIN_NAME') . '/cms');
 define('WP_HOME', $protocol . getenv('DOMAIN_NAME'));
-define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
+define('WP_CONTENT_DIR', $WEB_ROOT_PATH.DS.'wp-content');
 define('WP_CONTENT_URL', $protocol . getenv('DOMAIN_NAME') . '/wp-content');
-define('UPLOADS', dirname(__FILE__) . '/uploads');
+define('UPLOADS', $WEB_ROOT_PATH.DS.'uploads');
