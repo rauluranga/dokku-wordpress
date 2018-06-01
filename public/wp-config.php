@@ -80,7 +80,6 @@ $table_prefix  = 'wp_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 
-/* That's all, stop editing! Happy blogging. */
 defined('DS') ? DS : define('DS', DIRECTORY_SEPARATOR);
 
 $WORK_DIR = dirname(__DIR__);
