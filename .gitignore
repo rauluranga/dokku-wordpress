@@ -1,0 +1,7 @@
+.DS_Store
+
+# Wordpress
+public/cms
+
+# Composer
+vendor/

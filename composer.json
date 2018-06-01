@@ -1,0 +1,13 @@
+{
+    "require": {
+        "php": "7.2.0",
+        "ext-mbstring": "*",
+        "ext-gd": "*",
+        "ext-soap": "*",
+        "ext-memcached": "*",
+        "johnpbloch/wordpress": ">=4.5"
+    },
+    "extra":{
+        "wordpress-install-dir": "public/cms"
+    }
+}
