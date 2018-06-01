@@ -79,20 +79,12 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 defined('DS') ? DS : define('DS', DIRECTORY_SEPARATOR);
 
 $WORK_DIR = dirname(__DIR__);
 $WEB_ROOT_PATH = $WORK_DIR.DS.'public';
-
-/** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', $WEB_ROOT_PATH.DS.'cms');
-
-/** Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp-settings.php');
 
 /** Defines custom paths */
 $protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' : 'http://';
@@ -102,3 +94,15 @@ define('WP_HOME', $protocol . getenv('DOMAIN_NAME'));
 define('WP_CONTENT_DIR', $WEB_ROOT_PATH.DS.'wp-content');
 define('WP_CONTENT_URL', $protocol . getenv('DOMAIN_NAME') . '/wp-content');
 define('UPLOADS', $WEB_ROOT_PATH.DS.'uploads');
+
+define('WP_DEBUG', false);
+
+/* That's all, stop editing! Happy blogging. */
+
+/** Absolute path to the WordPress directory. */
+if ( !defined('ABSPATH') )
+	define('ABSPATH', dirname(__FILE__) . '/');
+
+/** Sets up WordPress vars and included files. */
+require_once(ABSPATH . 'wp-settings.php');
+
